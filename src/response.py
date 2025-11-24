@@ -1,19 +1,23 @@
 import os
 import json
 import random
-import openai
+from dotenv import load_dotenv
+from groq import Groq
 from sentence_transformers import SentenceTransformer, util
+
+# Load .env
+load_dotenv()
+
+# Groq Client
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # Load transformer model
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
-# Load OpenAI key from environment
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
-# Base project path
+# Base directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Detect correct filename
+# Detect FAQ file
 for name in ["faqs.json", "faq.json"]:
     path = os.path.join(BASE_DIR, "data", name)
     if os.path.exists(path):
@@ -30,7 +34,7 @@ if FAQ_PATH:
 else:
     data = {"intents": []}
 
-# Prepare embeddings
+# Build embeddings
 examples = []
 intent_ref = []
 
@@ -39,63 +43,58 @@ for intent in data["intents"]:
         examples.append(ex)
         intent_ref.append(intent)
 
-if examples:
-    example_embeds = model.encode(examples, convert_to_tensor=True)
-else:
-    example_embeds = None
-
-# ----------------------------------------------------------------------
-#   OPENAI FALLBACK - SMART & ENGAGING RESPONSES
-# ----------------------------------------------------------------------
+example_embeds = model.encode(examples, convert_to_tensor=True) if examples else None
 
 
-def ask_openai(user_msg):
-    prompt = f"""
-You are CoreDev Assistant — a friendly, highly skilled programming helper created by Nauman Khalid.
-
-Respond in a helpful, engaging developer-friendly style. 
-Explain concepts clearly. 
-If the user asks something non-technical, respond politely.
-
-User: {user_msg}
-Assistant:
-"""
-
+# -------------------------------------------------------------------
+#                     GROQ FALLBACK AI ANSWER
+# -------------------------------------------------------------------
+def ask_ai(user_msg):
     try:
-        completion = openai.ChatCompletion.create(
-            model="gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=180,
-            temperature=0.4,
+        chat = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are CoreDev Assistant — a friendly and engaging programming expert created by Nauman Khalid.",
+                },
+                {
+                    "role": "user",
+                    "content": user_msg,
+                },
+            ],
+            max_tokens=200,
+            temperature=0.45,
         )
-        return completion["choices"][0]["message"]["content"].strip()
+
+        # FIXED: Groq format
+        return chat.choices[0].message.content.strip()
 
     except Exception as e:
-        return "Sorry, I couldn't fetch a smart answer right now."
+        print(f"Groq Error: {e}")
+        return "Something went wrong while fetching the smart answer."
 
 
-# ----------------------------------------------------------------------
-#   MAIN RESPONSE FUNCTION
-# ----------------------------------------------------------------------
-
-
+# -------------------------------------------------------------------
+#                     MAIN RESPONSE LOGIC
+# -------------------------------------------------------------------
 def get_response(user_msg):
-    # If no FAQs exist, use AI directly
+    # No FAQ → use AI directly
     if not examples:
-        return ask_openai(user_msg)
+        return ask_ai(user_msg)
 
-    # Encode input
+    # Encode user input
     user_embed = model.encode(user_msg, convert_to_tensor=True)
 
-    # Calculate similarity
+    # Compare with FAQ examples
     scores = util.cos_sim(user_embed, example_embeds)[0]
     best_idx = scores.argmax().item()
     best_score = scores[best_idx].item()
 
-    # If similarity is strong enough → return predefined FAQ answer
-    if best_score >= 0.55:  # More strict to reduce wrong matches
+    # If match is strong → return FAQ answer
+    if best_score >= 0.55:
         intent = intent_ref[best_idx]
         return random.choice(intent["responses"])
 
-    # Otherwise → fallback to OpenAI
-    return ask_openai(user_msg)
+    # Otherwise use Groq AI fallback
+    return ask_ai(user_msg)

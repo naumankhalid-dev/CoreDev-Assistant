@@ -1,4 +1,5 @@
+sentence-transformers
+torch
 openai
-flask
-numpy
-scikit-learn
+python-dotenv
+groq

@@ -1,22 +1,19 @@
 from response import get_response
 
 
-def start_terminal_chat():
+def main():
     print("\n🚀 Welcome to CoreDev Assistant (Terminal Version)")
     print("Type 'exit' or 'quit' to leave.\n")
 
     while True:
-        user_input = input("You: ")
-
-        # Exit logic
-        if user_input.lower() in ["exit", "quit", "close", "bye"]:
-            print("Bot: Goodbye! Happy coding! 🚀")
+        user_msg = input("You: ").strip()
+        if user_msg.lower() in ["exit", "quit"]:
+            print("Bot: Goodbye! Have a productive coding day! 👋")
             break
 
-        # Generate response
-        bot_reply = get_response(user_input)
-        print(f"Bot: {bot_reply}\n")
+        bot_response = get_response(user_msg)
+        print(f"Bot: {bot_response}\n")
 
 
 if __name__ == "__main__":
-    start_terminal_chat()
+    main()
