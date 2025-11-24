@@ -1,0 +1,164 @@
+{
+  "intents": [
+    {
+      "tag": "greetings",
+      "examples": [
+        "hi",
+        "hello",
+        "hey",
+        "good morning",
+        "good evening",
+        "hey there"
+      ],
+      "responses": [
+        "Hello there! I am CoreDev Assistant, your friendly programming guide. How's your coding day going?",
+        "Hi! I'm here to help you with programming tips, tech guidance, and cool coding insights!",
+        "Hey! Ready to explore the world of coding and technology together?"
+      ]
+    },
+    {
+      "tag": "creator_info",
+      "examples": [
+        "who built you",
+        "who created you",
+        "who made you",
+        "who is your creator",
+        "who is your manufacturer"
+      ],
+      "responses": [
+        "Nauman Khalid is my creator, aiming to make programming guidance fun and easy for everyone!",
+        "I was built by Nauman Khalid to assist developers with programming, AI, and tech tips in a friendly way.",
+        "My creator is Nauman Khalid — a passionate developer who wanted to make learning coding engaging!"
+      ]
+    },
+    {
+      "tag": "python",
+      "examples": [
+        "what is python",
+        "explain python",
+        "tell me about python",
+        "python programming"
+      ],
+      "responses": [
+        "Python is a versatile, high-level programming language loved for its simplicity and readability. You can use it for web development, data science, AI, automation, and even fun projects like games!",
+        "Python allows you to bring ideas to life quickly! From building websites with Django to analyzing data with pandas, it's a favorite among developers worldwide.",
+        "Think of Python as your Swiss army knife in programming — easy to learn, yet incredibly powerful for almost anything you want to create."
+      ]
+    },
+    {
+      "tag": "java",
+      "examples": [
+        "what is java",
+        "explain java",
+        "java programming",
+        "tell me about java"
+      ],
+      "responses": [
+        "Java is a robust, object-oriented programming language used to build everything from mobile apps to large-scale enterprise systems. It’s everywhere!",
+        "With Java, you can write code once and run it anywhere. Its strong type safety and OOP features make it perfect for building reliable, scalable applications.",
+        "Java is like the backbone of many applications you use daily — from Android apps to big banking systems. Learning it opens doors to many opportunities!"
+      ]
+    },
+    {
+      "tag": "machine_learning",
+      "examples": [
+        "what is ml",
+        "machine learning",
+        "explain ml",
+        "what is machine learning",
+        "tell me about machine learning"
+      ],
+      "responses": [
+        "Machine Learning is a branch of AI where computers learn patterns from data to make predictions or decisions without being explicitly programmed.",
+        "Think of ML as teaching a computer by showing it lots of examples — it learns, improves, and can even surprise you with its predictions!",
+        "With ML, you can build systems that recognize images, predict trends, understand languages, and even play games — the possibilities are endless!"
+      ]
+    },
+    {
+      "tag": "artificial_intelligence",
+      "examples": [
+        "what is ai",
+        "explain ai",
+        "artificial intelligence",
+        "tell me about ai"
+      ],
+      "responses": [
+        "AI is the science of making machines smart — letting them think, learn, and solve problems like humans do.",
+        "Artificial Intelligence powers chatbots, self-driving cars, recommendation systems, and more. It's like giving a brain to computers!",
+        "With AI, your programs can learn from data, adapt to new situations, and even help humans make smarter decisions."
+      ]
+    },
+    {
+      "tag": "nodejs",
+      "examples": [
+        "what is nodejs",
+        "explain nodejs",
+        "tell me about nodejs",
+        "node js programming"
+      ],
+      "responses": [
+        "Node.js is a powerful runtime that lets you run JavaScript on the server side. You can build fast, scalable apps like websites, APIs, and real-time chats!",
+        "With Node.js, your JavaScript skills work both on the front-end and back-end. It’s perfect for full-stack development!",
+        "Node.js uses an event-driven, non-blocking I/O model, making it lightweight, fast, and ideal for building modern web applications."
+      ]
+    },
+    {
+      "tag": "react",
+      "examples": [
+        "what is react",
+        "explain react",
+        "tell me about react",
+        "reactjs"
+      ],
+      "responses": [
+        "React is a popular JavaScript library for building interactive user interfaces, especially single-page applications.",
+        "With React, you can create dynamic web apps using components, making your code reusable and easy to manage.",
+        "React makes the UI fast and efficient by only updating parts of the page that change — it’s a favorite among modern web developers!"
+      ]
+    },
+    {
+      "tag": "api",
+      "examples": [
+        "what is api",
+        "explain api",
+        "tell me about api",
+        "api definition"
+      ],
+      "responses": [
+        "An API, or Application Programming Interface, is like a bridge that lets two programs talk to each other.",
+        "Think of an API as a waiter in a restaurant — you order data or actions, and it brings the results from the system to you.",
+        "APIs make it possible for apps to integrate and share information seamlessly — powering everything from social media apps to payment systems!"
+      ]
+    },
+    {
+      "tag": "coding_tips",
+      "examples": [
+        "programming tips",
+        "how to improve coding skills",
+        "tips for coding",
+        "learn programming faster"
+      ],
+      "responses": [
+        "Practice consistently, read other people's code, and build real projects. Nothing beats hands-on experience!",
+        "Challenge yourself with small projects, explore different programming languages, and learn to debug like a detective.",
+        "Stay curious, ask questions, and never stop experimenting — coding is as much about creativity as it is about logic."
+      ]
+    },
+    {
+      "tag": "small_talk",
+      "examples": [
+        "how are you",
+        "how are you doing",
+        "ok",
+        "thanks",
+        "wow",
+        "i am nauman"
+      ],
+      "responses": [
+        "I'm doing great! Excited to help you explore programming and technology today.",
+        "Glad to chat with you! Ask me anything about coding, AI, or tech tips.",
+        "I enjoy sharing knowledge and helping developers like you learn new things every day!"
+      ]
+    }
+  ]
+}

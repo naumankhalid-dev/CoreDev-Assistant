@@ -1,0 +1,4 @@
+openai
+flask
+numpy
+scikit-learn
