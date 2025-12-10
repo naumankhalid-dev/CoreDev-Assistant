@@ -1,1 +1,75 @@
 .env
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.spec
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Byte-compiled
+*.bak
+
+# -----------------------------
+# Project History / Logs / Cache
+# -----------------------------
+history/
+chat_history/
+conversation_history/
+sessions/
+logs/
+*.log
+
+# Tkinter / UI temp files
+*.png~
+*.tmp
+
+# -----------------------------
+# JSON & App Data
+# -----------------------------
+faqs_backup.json
+*.db
+*.sqlite3
+*.sqlite
+
+# If your app stores dynamic config:
+config_local.json
+user_settings.json
+
+# -----------------------------
+# Node / Electron (if used)
+# -----------------------------
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+pnpm-lock.yaml
+
+# -----------------------------
+# OS generated files
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# PyInstaller / Build / Dist
+# -----------------------------
+build/
+dist/
+*.spec
+
+# -----------------------------
+# IDE/Editor files
+# -----------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
