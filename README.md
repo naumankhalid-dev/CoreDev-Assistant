@@ -27,11 +27,10 @@ Ideal for LinkedIn demo, portfolio projects, full desktop assistant apps, or exp
 
 <h2>🖼️ GUI Preview</h2>
 
-<p>Add your screenshot here:</p>
-
-<pre>
-&lt;img src="images/ui_preview.png" alt="CoreDev Assistant GUI" width="700"&gt;
-</pre>
+<p align="center">
+<img src="https://github.com/naumankhalid-dev/CoreDev-Assistant/blob/main/images/10.12.2025_15.30.17_REC.png?raw=true" 
+     alt="Screenshot" width="700" style="border-radius:12px;">
+</p>
 
 <hr>
 
@@ -100,7 +99,7 @@ If no FAQ matches, the assistant automatically uses the Grok API to generate hig
 
 <h3>1️⃣ Clone the Repository</h3>
 <pre>
-git clone https://github.com/yourusername/CoreDev-Assistant.git
+git clone https://github.com/naumankhalid-dev/CoreDev-Assistant/CoreDev-Assistant.git
 cd CoreDev-Assistant
 </pre>
 
@@ -177,7 +176,6 @@ python src/gui_chatbot_pro.py
 
 <h2>📬 Contact</h2>
 <p><strong>Developer:</strong> Nauman Khalid<br>
-<strong>Role:</strong> Mobile & Full-Stack Developer<br>
 <strong>Project:</strong> CoreDev Assistant (Hybrid)</p>
 
 <hr>
